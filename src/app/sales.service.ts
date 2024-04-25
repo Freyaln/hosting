@@ -19,7 +19,7 @@ export class SalesService {
   constructor(private http: HttpClient) { }
 
   createSale(data: Isales) {
-    return this.http.post(`${this.url}/sales/add`, data);
+    return this.http.post(`${this.url}/sales`, data);
   }
 
   fetchUserSales(id: string) {
