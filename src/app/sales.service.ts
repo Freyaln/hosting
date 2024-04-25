@@ -14,7 +14,7 @@ export interface Isales {
   providedIn: 'root'
 })
 export class SalesService {
-  private url = 'https://nestjs-auth-w-guards-w-interceptors-w-decorators-w-relations.vercel.app';
+  private url = 'https://nestjs-hosting2.vercel.app';
 
   constructor(private http: HttpClient) { }
 
