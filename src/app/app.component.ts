@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import {AuthService} from "./auth.service";
 import {SalesService} from "./sales.service";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {CookieService} from "ngx-cookie-service";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,7 @@ export class AppComponent {
   registerForm: FormGroup;
   loginForm: FormGroup;
   saleForm: FormGroup;
-  constructor(private fb: FormBuilder,private _authService: AuthService, private _salesService: SalesService) {
+  constructor(private fb: FormBuilder,private _authService: AuthService, private _salesService: SalesService, private _cookieService: CookieService) {
     this.registerForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -38,7 +40,9 @@ export class AppComponent {
 
   onRegisterSubmit() {
     if (this.registerForm.valid) {
-      this._authService.register(this.registerForm.value).subscribe();
+      this._authService.register(this.registerForm.value).subscribe({
+        next: (val) => console.log(val)
+      });
     }
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 export interface Iuser {
   email: string,
@@ -11,14 +11,15 @@ export interface Iuser {
 })
 export class AuthService {
   private url = 'https://nest-hosting.onrender.com';
+  headers = new HttpHeaders().append('Access-Control-Allow-Origin', '*')
 
   constructor(private http: HttpClient) { }
 
   register(data: Iuser) {
-    return this.http.post(`${this.url}/users/signup`, data );
+    return this.http.post(`${this.url}/users/signup`, data, {withCredentials: true, headers: this.headers});
   }
 
   login(data: Iuser) {
-    return this.http.post(`${this.url}/users/signin`,  data );
+    return this.http.post(`${this.url}/users/signin`,  data, {withCredentials: true, headers: this.headers} );
   }
 }
