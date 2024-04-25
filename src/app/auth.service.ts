@@ -11,15 +11,14 @@ export interface Iuser {
 })
 export class AuthService {
   private url = 'https://nest-hosting.onrender.com';
-  headers = new HttpHeaders().append('Access-Control-Allow-Origin', '*')
 
   constructor(private http: HttpClient) { }
 
   register(data: Iuser) {
-    return this.http.post(`${this.url}/users/signup`, data, {withCredentials: true, headers: this.headers});
+    return this.http.post(`${this.url}/users/signup`, data, {withCredentials: true});
   }
 
   login(data: Iuser) {
-    return this.http.post(`${this.url}/users/signin`,  data, {withCredentials: true, headers: this.headers} );
+    return this.http.post(`${this.url}/users/signin`,  data, {withCredentials: true} );
   }
 }
