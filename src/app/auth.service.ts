@@ -10,7 +10,7 @@ export interface Iuser {
   providedIn: 'root'
 })
 export class AuthService {
-  private url = 'https://nestjs-auth-w-guards-w-interceptors-w-decorators-w-relations.vercel.app';
+  private url = 'nestjs-auth-w-guards-w-interceptors-w-decorators-w-nv0m1g87u.vercel.app';
 
   constructor(private http: HttpClient) { }
 
