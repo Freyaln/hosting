@@ -14,7 +14,7 @@ export interface Isales {
   providedIn: 'root'
 })
 export class SalesService {
-  private url = 'https://nestjs-hosting2.vercel.app';
+  private url = 'https://nest-hosting.onrender.com';
 
   constructor(private http: HttpClient) { }
 
